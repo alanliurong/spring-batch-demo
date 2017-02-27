@@ -1,10 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.cheng.demo</groupId>
+    <groupId>com.cheng.springbatch</groupId>
     <artifactId>spring-batch-demo</artifactId>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-batch-web</module>
+        <module>spring-batch-hello</module>
+        <module>spring-batch-csv</module>
+    </modules>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
@@ -13,22 +18,24 @@
         <spring.batch.version>3.0.7.RELEASE</spring.batch.version>
     </properties>
 
-    <dependencies>
-        <!--junit 单元测试-->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <!--spring-batch-->
-        <dependency>
-            <groupId>org.springframework.batch</groupId>
-            <artifactId>spring-batch-core</artifactId>
-            <version>${spring.batch.version}</version>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <!--junit 单元测试-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!--spring-batch-->
+            <dependency>
+                <groupId>org.springframework.batch</groupId>
+                <artifactId>spring-batch-core</artifactId>
+                <version>${spring.batch.version}</version>
+            </dependency>
 
-    </dependencies>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <finalName>spring-batch-demo</finalName>

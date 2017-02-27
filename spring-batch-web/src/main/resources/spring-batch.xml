@@ -6,7 +6,6 @@
 
     <import resource="application.xml"/>
 
-
     <batch:job id="helloWorldJob">
         <batch:step id="step_hello" next="step_world">
             <batch:tasklet ref="hello" transaction-manager="transactionManager"/>
@@ -15,10 +14,10 @@
             <batch:tasklet ref="world" transaction-manager="transactionManager"/>
         </batch:step>
     </batch:job>
-    <bean id="hello" class="com.cheng.demo.springbatch.helloworld.writeTasklet">
+    <bean id="hello" class="com.cheng.springbatch.hello.WriteTasklet">
         <property name="message" value="Hello "/>
     </bean>
-    <bean id="world" class="com.cheng.demo.springbatch.helloworld.writeTasklet">
+    <bean id="world" class="com.cheng.springbatch.hello.WriteTasklet">
         <property name="message" value="World!"/>
     </bean>
 
@@ -29,13 +28,13 @@
                 <batch:chunk reader="csvItemReader"
                              writer="csvItemWriter"
                              processor="csvItemProcessor"
-                             commit-interval="1"/>
+                             commit-interval="2"/>
             </batch:tasklet>
         </batch:step>
     </batch:job>
     <!--文件读取-->
     <bean id="csvItemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
-        <property name="resource" value="file:E:\code\spring-batch-demo\src\inputFile.csv"/>
+        <property name="resource" value="file:E:\code\spring-batch-demo\spring-batch-web\src\inputFile.csv"/>
         <property name="lineMapper">
             <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
                 <property name="lineTokenizer" ref="lineTokenizer"/>
@@ -47,7 +46,7 @@
             </bean>
         </property>
     </bean>
-    <bean id="student" class="com.cheng.demo.springbatch.csv.Student"/>
+    <bean id="student" class="com.cheng.springbatch.csv.Student" scope="prototype"/>
     <bean id="lineTokenizer" class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
         <property name="delimiter" value=","/>
         <property name="names">
@@ -61,7 +60,7 @@
     </bean>
     <!--文件写入-->
     <bean id="csvItemWriter" class="org.springframework.batch.item.file.FlatFileItemWriter" scope="step">
-        <property name="resource" value="file:E:\code\spring-batch-demo\src\outputFile.csv"/>
+        <property name="resource" value="file:E:\code\spring-batch-demo\spring-batch-web\src\outputFile.csv"/>
         <property name="lineAggregator">
             <bean class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
                 <property name="delimiter" value=","/>

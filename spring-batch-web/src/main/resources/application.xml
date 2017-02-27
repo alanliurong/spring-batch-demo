@@ -17,6 +17,6 @@
     <bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.cheng.demo.springbatch"/>
+    <context:component-scan base-package="com.cheng.springbatch"/>
 
 </beans>

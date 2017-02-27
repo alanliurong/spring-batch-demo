@@ -2,7 +2,7 @@
  * Bestpay.com.cn Inc.
  * Copyright (c) 2011-2017 All Rights Reserved.
  */
-package com.cheng.demo.springbatch.csv;
+package com.cheng.springbatch.csv;
 
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
