@@ -6,6 +6,7 @@
 
     <import resource="application.xml"/>
 
+
     <batch:job id="helloWorldJob">
         <batch:step id="step_hello" next="step_world">
             <batch:tasklet ref="hello" transaction-manager="transactionManager"/>
@@ -14,13 +15,63 @@
             <batch:tasklet ref="world" transaction-manager="transactionManager"/>
         </batch:step>
     </batch:job>
-
     <bean id="hello" class="com.cheng.demo.springbatch.helloworld.writeTasklet">
         <property name="message" value="Hello "/>
     </bean>
-
     <bean id="world" class="com.cheng.demo.springbatch.helloworld.writeTasklet">
         <property name="message" value="World!"/>
+    </bean>
+
+    <!--读取文件Job-->
+    <batch:job id="csvJob">
+        <batch:step id="csvStep">
+            <batch:tasklet transaction-manager="transactionManager">
+                <batch:chunk reader="csvItemReader"
+                             writer="csvItemWriter"
+                             processor="csvItemProcessor"
+                             commit-interval="1"/>
+            </batch:tasklet>
+        </batch:step>
+    </batch:job>
+    <!--文件读取-->
+    <bean id="csvItemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
+        <property name="resource" value="file:E:\code\spring-batch-demo\src\inputFile.csv"/>
+        <property name="lineMapper">
+            <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+                <property name="lineTokenizer" ref="lineTokenizer"/>
+                <property name="fieldSetMapper">
+                    <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+                        <property name="prototypeBeanName" value="student"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="student" class="com.cheng.demo.springbatch.csv.Student"/>
+    <bean id="lineTokenizer" class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+        <property name="delimiter" value=","/>
+        <property name="names">
+            <list>
+                <value>ID</value>
+                <value>name</value>
+                <value>age</value>
+                <value>score</value>
+            </list>
+        </property>
+    </bean>
+    <!--文件写入-->
+    <bean id="csvItemWriter" class="org.springframework.batch.item.file.FlatFileItemWriter" scope="step">
+        <property name="resource" value="file:E:\code\spring-batch-demo\src\outputFile.csv"/>
+        <property name="lineAggregator">
+            <bean class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
+                <property name="delimiter" value=","/>
+                <property name="fieldExtractor">
+                    <bean class="org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor">
+                        <property name="names" value="name,age,score"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
     </bean>
 
 </beans>

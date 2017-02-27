@@ -20,7 +20,7 @@ public class JobLaunch {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-batch.xml");
         JobLauncher launcher = (JobLauncher) context.getBean("jobLauncher");
-        Job job = (Job) context.getBean("helloWorldJob");
+        Job job = (Job) context.getBean("csvJob");
 
         try {
             //运行Job
