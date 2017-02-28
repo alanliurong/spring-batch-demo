@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>spring-batch-demo</artifactId>
         <groupId>com.cheng.springbatch</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-batch-hello</artifactId>
+    <artifactId>spring-batch-fixed</artifactId>
     <packaging>jar</packaging>
     <version>${parent.version}</version>
 
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.batch</groupId>
@@ -21,6 +22,8 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>spring-batch-hello</finalName>
+        <finalName>spring-batch-fixed</finalName>
     </build>
+
+
 </project>

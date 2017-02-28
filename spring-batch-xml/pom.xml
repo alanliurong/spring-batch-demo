@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>spring-batch-xml</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>${parent.version}</version>
 
     <name>${project.artifactId}</name>
