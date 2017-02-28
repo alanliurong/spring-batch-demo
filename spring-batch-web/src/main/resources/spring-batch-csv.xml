@@ -7,8 +7,7 @@
        http://www.springframework.org/schema/batch
        http://www.springframework.org/schema/batch/spring-batch.xsd">
 
-
-    <!--读取文件Job-->
+    <!--定义Job-->
     <batch:job id="csvJob">
         <batch:step id="csvStep">
             <batch:tasklet transaction-manager="transactionManager">
@@ -19,6 +18,7 @@
             </batch:tasklet>
         </batch:step>
     </batch:job>
+
     <!--文件读取-->
     <bean id="csvItemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
         <property name="resource" value="file:E:\code\spring-batch-demo\spring-batch-web\src\inputFile.csv"/>
@@ -33,7 +33,9 @@
             </bean>
         </property>
     </bean>
+
     <bean id="student" class="com.cheng.springbatch.csv.Student" scope="prototype"/>
+
     <bean id="lineTokenizer" class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
         <property name="delimiter" value=","/>
         <property name="names">
@@ -45,6 +47,7 @@
             </list>
         </property>
     </bean>
+
     <!--文件写入-->
     <bean id="csvItemWriter" class="org.springframework.batch.item.file.FlatFileItemWriter" scope="step">
         <property name="resource" value="file:E:\code\spring-batch-demo\spring-batch-web\src\outputFile.csv"/>

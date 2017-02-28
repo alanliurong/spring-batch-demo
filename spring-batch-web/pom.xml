@@ -14,10 +14,6 @@
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.batch</groupId>
-            <artifactId>spring-batch-core</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.cheng.springbatch</groupId>
             <artifactId>spring-batch-hello</artifactId>
             <version>${parent.version}</version>
@@ -31,6 +27,15 @@
             <groupId>com.cheng.springbatch</groupId>
             <artifactId>spring-batch-xml</artifactId>
             <version>${parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
         </dependency>
     </dependencies>
     <build>

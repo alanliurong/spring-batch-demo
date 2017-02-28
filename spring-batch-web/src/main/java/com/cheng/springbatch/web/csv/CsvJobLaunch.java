@@ -13,12 +13,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author chengchenrui
- * @version Id: JobLaunch.java, v 0.1 2017.2.27 14:28 chengchenrui Exp $$
+ * @version Id: CsvJobLaunch.java, v 0.1 2017.2.27 14:28 chengchenrui Exp $$
  */
-public class JobLaunch {
+public class CsvJobLaunch {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-batch-hello.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
         JobLauncher launcher = (JobLauncher) context.getBean("jobLauncher");
         Job job = (Job) context.getBean("csvJob");
 

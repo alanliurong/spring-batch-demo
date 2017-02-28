@@ -7,7 +7,7 @@
        http://www.springframework.org/schema/batch
        http://www.springframework.org/schema/batch/spring-batch.xsd">
 
-
+    <!--定义Jobs-->
     <batch:job id="helloWorldJob">
         <batch:step id="step_hello" next="step_world">
             <batch:tasklet ref="hello" transaction-manager="transactionManager"/>
@@ -16,6 +16,7 @@
             <batch:tasklet ref="world" transaction-manager="transactionManager"/>
         </batch:step>
     </batch:job>
+
     <bean id="hello" class="com.cheng.springbatch.hello.WriteTasklet">
         <property name="message" value="Hello "/>
     </bean>
