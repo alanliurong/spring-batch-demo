@@ -18,7 +18,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class JobLaunch {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-batch.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-batch-hello.xml");
         JobLauncher launcher = (JobLauncher) context.getBean("jobLauncher");
         Job job = (Job) context.getBean("helloWorldJob");
 

@@ -9,6 +9,7 @@
         <module>spring-batch-web</module>
         <module>spring-batch-hello</module>
         <module>spring-batch-csv</module>
+        <module>spring-batch-xml</module>
     </modules>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>

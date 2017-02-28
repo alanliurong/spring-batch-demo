@@ -27,6 +27,11 @@
             <artifactId>spring-batch-csv</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.cheng.springbatch</groupId>
+            <artifactId>spring-batch-xml</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>spring-batch-web</finalName>
