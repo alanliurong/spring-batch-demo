@@ -14,7 +14,10 @@
     <batch:job id="xmlFileReadAndWriterJob">
         <batch:step id="xmlFileReadAndWriterStep">
             <batch:tasklet>
-                <batch:chunk reader="xmlReader" writer="xmlWriter" processor="xMLProcessor" commit-interval="10"/>
+                <batch:chunk reader="xmlReader"
+                             writer="xmlWriter"
+                             processor="xMLProcessor"
+                             commit-interval="10"/>
             </batch:tasklet>
         </batch:step>
     </batch:job>

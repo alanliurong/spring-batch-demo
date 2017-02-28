@@ -30,6 +30,11 @@
             <artifactId>spring-batch-xml</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.cheng.springbatch</groupId>
+            <artifactId>spring-batch-fixed</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.batch</groupId>
