@@ -13,6 +13,7 @@
         <module>spring-batch-csv</module>
         <module>spring-batch-xml</module>
         <module>spring-batch-fixed</module>
+        <module>spring-batch-multi</module>
     </modules>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>

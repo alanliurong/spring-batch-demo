@@ -23,5 +23,6 @@
     <import resource="classpath:spring-batch-csv.xml"/>
     <import resource="classpath:spring-batch-xml.xml"/>
     <import resource="classpath:spring-batch-fixed.xml"/>
+    <import resource="classpath:spring-batch-multi.xml"/>
 
 </beans>
