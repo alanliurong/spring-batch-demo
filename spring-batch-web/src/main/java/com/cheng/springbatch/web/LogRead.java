@@ -27,10 +27,7 @@ public class LogRead {
         String path = "D:\\logTest.log";
         List logList = readeLog(path);
         Collections.sort(logList, Collections.reverseOrder());
-        for (int i = 0, len = logList.size(); i < len; i++) {
-            if (i + 1 == len) {
-                break;
-            }
+        for (int i = 0, len = logList.size() - 1; i < len; i++) {
             Long timeDifference = (Long) logList.get(i) - (Long) logList.get(i + 1);
             if (timeDifference > MINUTES_30 && timeDifference < HOURS_1) {
                 Date dateStart = new Date((Long) logList.get(i + 1));
@@ -64,12 +61,14 @@ public class LogRead {
                 try {
                     bufr.close();
                 } catch (IOException e1) {
+
                 }
             }
             if (fileReader != null) {
                 try {
                     fileReader.close();
                 } catch (IOException e1) {
+
                 }
             }
             return logList;
