@@ -8,8 +8,7 @@
         <batch:step id="jdbcStep">
             <batch:tasklet transaction-manager="transactionManager">
                 <batch:chunk reader="jdbcItemReader"
-                             writer="jdbcItemWriter"
-                             processor=""/>
+                             writer="jdbcItemWriter"/>
             </batch:tasklet>
         </batch:step>
     </batch:job>
