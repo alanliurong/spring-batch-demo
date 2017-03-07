@@ -21,30 +21,37 @@ public class LogRead {
         Locale.ENGLISH);
     public static final Long             MINUTES_30 = 1800000L;
 
-    public static final Long             HOURS_1    = 3600000L;
-
     public static void main(String[] args) throws Exception {
         String path = "D:\\logTest.log";
-        List logList = readeLog(path);
-        Collections.sort(logList, Collections.reverseOrder());
+        List<Long> logList = readeLog(path);
+        Collections.sort(logList);
+        List<Integer> index = new ArrayList<Integer>();
         for (int i = 0, len = logList.size() - 1; i < len; i++) {
-            Long timeDifference = (Long) logList.get(i) - (Long) logList.get(i + 1);
-            if (timeDifference > MINUTES_30 && timeDifference < HOURS_1) {
-                Date dateStart = new Date((Long) logList.get(i + 1));
-                Date dateEnd = new Date((Long) logList.get(i));
+            //Date date = new Date(logList.get(i));
+            //System.out.println(FORMAT.format(date));
+
+            Long timeDifference = Math.abs(logList.get(i) - logList.get(i + 1));
+            if (timeDifference < MINUTES_30) {
+                index.add(i);
+            }
+            if (timeDifference >= MINUTES_30 && !index.isEmpty()) {
+                Date dateStart = new Date(logList.get(index.get(0)));
+                Date dateEnd = new Date(logList.get(i));
                 String resultStart = FORMAT.format(dateStart);
                 String resultEnd = FORMAT.format(dateEnd);
-                System.out.println(resultStart + "      " + resultEnd + "     " + timeDifference);
+                Long timeResult = logList.get(i) - logList.get(index.get(0));
+                index.clear();
+                System.out.println(resultStart + "      " + resultEnd + "     " + timeResult);
             }
         }
 
     }
 
-    private static List readeLog(String path) {
+    private static List<Long> readeLog(String path) {
         File file = new File(path);
         BufferedReader bufr = null;
         FileReader fileReader = null;
-        List logList = new ArrayList();
+        List<Long> logList = new ArrayList<Long>();
         try {
             fileReader = new FileReader(file);
             bufr = new BufferedReader(fileReader);
