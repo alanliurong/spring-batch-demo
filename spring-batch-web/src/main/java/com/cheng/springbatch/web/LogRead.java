@@ -22,7 +22,7 @@ public class LogRead {
     public static final Long             MINUTES_30 = 1800000L;
 
     public static void main(String[] args) throws Exception {
-        String path = "D:\\logTest.log";
+        String path = "E:\\code\\spring-batch-demo\\spring-batch-web\\src\\logTest.log";
         List<Long> logList = readeLog(path);
         Collections.sort(logList);
         List<Integer> index = new ArrayList<Integer>();
@@ -52,13 +52,15 @@ public class LogRead {
         BufferedReader bufr = null;
         FileReader fileReader = null;
         List<Long> logList = new ArrayList<Long>();
+
         try {
             fileReader = new FileReader(file);
             bufr = new BufferedReader(fileReader);
             String tempString;
             while ((tempString = bufr.readLine()) != null) {
-                String listString[] = tempString.split("- - \\u005B");
-                Long time = FORMAT.parse(listString[1]).getTime();
+                final int first = tempString.indexOf("[");
+                final int last = tempString.indexOf("+0800]");
+                Long time = FORMAT.parse(tempString.substring(first + 1, last).trim()).getTime();
                 logList.add(time);
             }
         } catch (Exception e) {
