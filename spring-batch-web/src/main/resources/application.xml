@@ -14,7 +14,7 @@
 
     <bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean"/>
 
-    <bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
+    <!--<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>-->
 
     <context:annotation-config/>
     <context:component-scan base-package="com.cheng.springbatch"/>
