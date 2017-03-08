@@ -12,6 +12,7 @@
             <batch:tasklet transaction-manager="transactionManager">
                 <batch:chunk reader="jdbcItemReader"
                              writer="jdbcItemWriter"
+                             processor="jdbcProcessor"
                              commit-interval="1"/>
             </batch:tasklet>
         </batch:step>
