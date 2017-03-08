@@ -40,9 +40,9 @@
     <bean id="jdbcItemWriter" class="org.springframework.batch.item.database.JdbcBatchItemWriter">
         <property name="dataSource" ref="dataSource"/>
         <property name="sql" value="insert into T_DEST_USER
-        (ID,USER_ID,USERNAME,PASSWORD)
+        (ID,USER_ID,USERNAME,PASSWORD,UPDATE_TIME,UPDATE_USER)
         values
-        (:id,:userId,:userName,:password)"/>
+        (:id,:userId,:userName,:password,:updateTime,:updateUser)"/>
         <property name="itemSqlParameterSourceProvider">
             <bean class="org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider"/>
         </property>
