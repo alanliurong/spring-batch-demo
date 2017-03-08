@@ -20,12 +20,12 @@ public class JdbcLaunch {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
         JobLauncher launcher = (JobLauncher) context.getBean("jobLauncher");
-        Job job = (Job) context.getBean("multiTypeSingleFileJob");
+        Job job = (Job) context.getBean("jdbcJob");
 
         try {
             // JOB实行
             JobExecution result = launcher.run(job,
-                new JobParametersBuilder().addString("id", "12").toJobParameters());
+                new JobParametersBuilder().addString("id", "3").toJobParameters());
             // 运行结果输出
             System.out.println(result.toString());
         } catch (Exception e) {

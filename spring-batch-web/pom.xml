@@ -40,6 +40,11 @@
             <artifactId>spring-batch-multi</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.cheng.springbatch</groupId>
+            <artifactId>spring-batch-jdbc</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.batch</groupId>
@@ -68,6 +73,10 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
     <build>

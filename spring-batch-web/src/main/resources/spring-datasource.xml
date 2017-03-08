@@ -13,9 +13,9 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <!--配置连接池属性-->
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/seckill"/>
-        <property name="user" value=""/>
-        <property name="password" value=""/>
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/batch"/>
+        <property name="user" value="root"/>
+        <property name="password" value="123456"/>
         <property name="maxPoolSize" value="30"/>
         <property name="minPoolSize" value="20"/>
         <property name="autoCommitOnClose" value="false"/>
