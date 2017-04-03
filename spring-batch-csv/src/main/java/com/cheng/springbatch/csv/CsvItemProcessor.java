@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @version Id: CsvItemProcessor.java, v 0.1 2017.2.27 15:43 chengchenrui Exp $$
  */
 @Component("csvItemProcessor")
-public class CsvItemProcessor implements ItemProcessor<Student, Student> {
+public class CsvItemProcessor implements ItemProcessor<StudentCsv, StudentCsv> {
 
     /**
      * 对数据进行转换
@@ -16,9 +16,9 @@ public class CsvItemProcessor implements ItemProcessor<Student, Student> {
      * @return
      * @throws Exception
      */
-    public Student process(Student item) throws Exception {
+    public StudentCsv process(StudentCsv item) throws Exception {
 
-        item.setName(item.getID() + "--" + item.getName());
+        item.setName(item.getStudentId() + "--" + item.getName());
         item.setAge(item.getAge() + 2);
         item.setScore(item.getScore() + 10);
 

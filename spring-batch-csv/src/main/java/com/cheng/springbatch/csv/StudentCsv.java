@@ -4,33 +4,33 @@ import java.io.Serializable;
 
 /**
  * @author chengchenrui
- * @version Id: Student.java, v 0.1 2017.2.27 15:24 chengchenrui Exp $$
+ * @version Id: StudentCsv.java, v 0.1 2017.2.27 15:24 chengchenrui Exp $$
  */
-public class Student implements Serializable {
+public class StudentCsv implements Serializable {
 
     /**
      * ID
      */
-    private String ID   = "";
+    private String studentId = "";
     /**
      * 名字
      */
-    private String name = "";
+    private String name      = "";
     /**
      * 年龄
      */
-    private int    age  = 0;
+    private int    age       = 0;
     /**
      * 分数
      */
-    private float score = 0;
+    private float  score     = 0;
 
-    public String getID() {
-        return ID;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public String getName() {
@@ -56,6 +56,4 @@ public class Student implements Serializable {
     public void setScore(float score) {
         this.score = score;
     }
-
-
 }

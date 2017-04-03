@@ -14,7 +14,7 @@
                 <batch:chunk reader="csvItemReader"
                              writer="csvItemWriter"
                              processor="csvItemProcessor"
-                             commit-interval="2"/>
+                             commit-interval="1"/>
             </batch:tasklet>
         </batch:step>
     </batch:job>
@@ -27,20 +27,20 @@
                 <property name="lineTokenizer" ref="lineTokenizer"/>
                 <property name="fieldSetMapper">
                     <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
-                        <property name="prototypeBeanName" value="student"/>
+                        <property name="prototypeBeanName" value="studentCsv"/>
                     </bean>
                 </property>
             </bean>
         </property>
     </bean>
 
-    <bean id="student" class="com.cheng.springbatch.csv.Student" scope="prototype"/>
+    <bean id="studentCsv" class="com.cheng.springbatch.csv.StudentCsv" scope="prototype"/>
 
     <bean id="lineTokenizer" class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
         <property name="delimiter" value=","/>
         <property name="names">
             <list>
-                <value>ID</value>
+                <value>studentId</value>
                 <value>name</value>
                 <value>age</value>
                 <value>score</value>
